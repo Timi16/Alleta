@@ -1,0 +1,22 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "cargo prisma"
+  output   = "../src/prisma.rs"
+}
+
+model Report {
+  id         String   @id @default(cuid())
+  txHash     String   @db.VarChar(66)
+  chain      String   @db.VarChar(50)
+  reportData Json
+  createdAt  DateTime @default(now())
+  expiresAt  DateTime
+
+  @@index([txHash, chain])
+  @@index([createdAt])
+  @@map("reports")
+}
