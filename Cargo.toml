@@ -36,4 +36,4 @@ nanoid = "0.4"
 chrono = { version = "0.4", features = ["serde"] }
 
 [build-dependencies]
-prisma-client-rust = { git = "https://github.com/Brendonk13/prisma-client-rust", tag = "0.6.11" }
+prisma-client-rust = { git = "https://github.com/Brendonovich/prisma-client-rust", tag = "0.6.11" }
